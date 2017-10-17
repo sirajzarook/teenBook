@@ -1,0 +1,64 @@
+﻿@model IEnumerable<teenBook.Data.Topic>
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.InitModule = "homeIndex";
+}
+
+@section Scripts{
+        <script src="~/js/home-index.js"></script>
+        @*<script>
+            var app = angular.module('homeIndex', ["ngRoute"]);
+            //app.controller('topicsController',topicsController); //register the control
+
+            app.config(function ($routeProvider) {
+                $routeProvider
+                .when("/", {
+                    controller: "topicsController",
+                    templateUrl: "/templates/topicsView.html"
+                });
+
+                $routeProvider.otherwise({ redirectTo: "/" });
+            });
+
+            app.controller('topicsController', function ($scope, $http) {
+                //alert("Hello world angular");
+                $scope.name = "Siraj Zarook";
+                $scope.dataCount = 0;
+                $scope.data = [];
+                $scope.isBusy = false;
+
+                $http.get("api/v1/topics?includereplies=true")
+                    .then(function (result) {
+                        //when success
+
+                        //$scope.data = result.data; // would work in normal cases like not dealing with collection
+
+                        // angular way to deal with collection of data (helps repeat calls in UI pages
+                        angular.copy(result.data, $scope.data);
+
+                    },
+                    function () {
+                        //when failed
+                        alert("could not load the topics");
+
+                    })
+                    .then(function () {
+
+                        $scope.isBusy = false;
+
+                    });
+            });
+        </script>*@
+
+    }
+
+<div data-ng-view=""></div>
+
+@*@foreach (var topic in Model)
+{
+    <div>
+         <h3>@topic.Title</h3>
+         <p> @topic.Body</p>
+    
+    </div>
+}*@
